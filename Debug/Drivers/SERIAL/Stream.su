@@ -1,0 +1,14 @@
+Stream.c:23:6:Stream___construct	16	static
+Stream.c:30:5:Stream_timedRead	24	static
+Stream.c:44:5:Stream_timedPeek	24	static
+Stream.c:59:5:Stream_peekNextDigit	24	static
+Stream.c:97:6:Stream_setTimeout	16	static
+Stream.c:102:15:Stream_getTimeout	16	static
+Stream.c:109:9:Stream_find	32	static
+Stream.c:114:9:Stream_findChar	16	static
+Stream.c:122:9:Stream_findUntil	64	static
+Stream.c:141:6:Stream_parseInt	32	static
+Stream.c:170:7:Stream_parseFloat	32	static
+Stream.c:214:8:Stream_readBytes	32	static
+Stream.c:232:8:Stream_readBytesUntil	32	static
+Stream.c:270:5:Stream_findMulti	48	static

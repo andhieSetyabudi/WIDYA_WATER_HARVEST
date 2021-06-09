@@ -1,0 +1,2 @@
+micro_delay.c:12:18:delay_microsInit	4	static,ignoring_inline_asm
+micro_delay.c:33:6:delay_microSeconds	32	static

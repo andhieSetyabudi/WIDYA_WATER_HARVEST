@@ -1,0 +1,14 @@
+cdc_queue.c:41:6:CDC_TransmitQueue_Init	16	static
+cdc_queue.c:48:5:CDC_TransmitQueue_WriteSize	16	static
+cdc_queue.c:55:5:CDC_TransmitQueue_ReadSize	16	static
+cdc_queue.c:62:6:CDC_TransmitQueue_Enqueue	32	static
+cdc_queue.c:77:10:CDC_TransmitQueue_ReadBlock	16	static
+cdc_queue.c:89:6:CDC_TransmitQueue_CommitRead	16	static
+cdc_queue.c:96:6:CDC_ReceiveQueue_Init	16	static
+cdc_queue.c:104:10:CDC_ReceiveQueue_ReserveBlock	24	static
+cdc_queue.c:130:6:CDC_ReceiveQueue_CommitBlock	16	static
+cdc_queue.c:143:5:CDC_ReceiveQueue_ReadSize	24	static
+cdc_queue.c:156:5:CDC_ReceiveQueue_Dequeue	24	static
+cdc_queue.c:174:5:CDC_ReceiveQueue_Peek	24	static
+cdc_queue.c:187:10:CDC_ReceiveQueue_Read	32	static
+cdc_queue.c:214:6:CDC_ReceiveQueue_ReadUntil	40	static

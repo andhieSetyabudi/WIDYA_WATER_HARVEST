@@ -1,0 +1,16 @@
+Print.c:23:6:Print_setWriteError	16	static
+Print.c:30:6:Print___construct	16	static
+Print.c:35:5:Print_getWriteError	16	static
+Print.c:40:6:Print_clearWriteError	16	static
+Print.c:46:8:Print_write	32	static
+Print.c:61:27:Print_availableForWrite	16	static
+Print.c:66:8:Print_print	16	static
+Print.c:71:8:Print_printChar	16	static
+Print.c:76:8:Print_printNumber	32	static
+Print.c:98:8:Print_println	24	static
+Print.c:105:8:Print_printlnChar	24	static
+Print.c:112:8:Print_printlnNumber	32	static
+Print.c:119:8:Print_printlnFloat	32	static
+Print.c:126:28:Print_flush	16	static
+Print.c:132:8:Print_printNumberUnsigned	64	static
+Print.c:154:8:Print_printFloat	80	static

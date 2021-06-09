@@ -1,0 +1,7 @@
+BASIC_LOGIC.h:16:24:digitalWrite	24	static
+BASIC_LOGIC.h:22:27:digitalRead	16	static
+HX710B.c:15:9:shiftInSlow	24	static,ignoring_inline_asm
+HX710B.c:33:22:HX710BIsReady	24	static
+HX710B.c:59:22:HX710BRead	32	static,ignoring_inline_asm
+HX710B.c:92:22:HX710BSetMode	16	static
+HX710B.c:98:22:HX710BInit	24	static
