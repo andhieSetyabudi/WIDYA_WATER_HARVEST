@@ -30,4 +30,42 @@
 #define CONCATE(MACRO, NUMBER) CONCATE_(MACRO, NUMBER)
 #define VA_MACRO(MACRO, ...) CONCATE(MACRO, NUM_ARGS(__VA_ARGS__))(__VA_ARGS__)
 
+
+#define  SW_I2C_WAIT_TIME  25
+#define  I2C_READ       0x01
+#define  READ_CMD       1
+#define  WRITE_CMD      0
+
+
+#define I2C_PIN_INPUT_MODE		0
+#define I2C_PIN_OUTPUT_MODE		1
+
+#ifndef TRUE
+	#define TRUE 1
+#endif
+
+#ifndef FALSE
+	#define FALSE 0
+#endif
+
+/* Status Reply */
+typedef enum
+{
+	SoftI2C_OK       = 0x00U,
+	SoftI2C_ERROR     = 0x01U,
+	SoftI2C_BUSY      = 0x02U,
+	SoftI2C_TIMEOUT   = 0x03U
+} SoftI2C_status;
+
+typedef struct {
+	PORT_IO SDA_pin;
+	PORT_IO SCL_pin;
+	uint32_t (*getTick)(void);
+	void (*delay_ms)(uint32_t t_);
+}softI2C_pin;
+
+
+static void softI2C_init(PORT_IO SCL, PORT_IO SDA);
+
+
 #endif /* SOFT_I2C_SOFT_I2C_H_ */

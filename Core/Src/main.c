@@ -25,8 +25,11 @@
 /* USER CODE BEGIN Includes */
 #include "BASIC_LOGIC.h"
 #include "HX710B.h"
+#include "AHT10.h"
 #include "E32_915T30.h"
+
 #include "SerialUSB.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,6 +47,8 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+I2C_HandleTypeDef hi2c1;
+
 RTC_HandleTypeDef hrtc;
 
 TIM_HandleTypeDef htim1;
@@ -60,8 +65,75 @@ static void MX_GPIO_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_RTC_Init(void);
+static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
+char * getUUID(char * buff)
+{
+	union {
+	  uint32_t w[3];
+	  uint8_t b[12];
+	} uid;
+	uid.w[0] = HAL_GetUIDw0();
+	uid.w[1] = HAL_GetUIDw1();
+	uid.w[2] = HAL_GetUIDw2();
+	sprintf(buff, "%02X%02X%02X%02X%02X%02X", uid.b[11], uid.b[10] + uid.b[2], uid.b[9], uid.b[8] + uid.b[0], uid.b[7], uid.b[6]);
+	return buff;
+}
 
+char* ftoa(float f, char * buf, int precision)
+{
+	char * ptr = buf;
+	char * p = ptr;
+	char * p1;
+	char c;
+	long intPart;
+	if (precision > MAX_PRECISION)		// check precision bounds
+		precision = MAX_PRECISION;
+	if (f < 0) {		// sign stuff
+		f = -f;
+		*ptr++ = '-';
+	}
+	if (precision < 0) {  // negative precision == automatic precision guess
+		if (f < 1.0) precision = 4;
+		else if (f < 10.0) precision = 3;
+		else if (f < 100.0) precision = 2;
+		else if (f < 1000.0) precision = 1;
+		else precision = 0;
+	}
+	if (precision)  	// round value according the precision
+		f += rounders[precision];
+	// integer part...
+	intPart = f;
+	f -= intPart;
+	if (!intPart)
+		*ptr++ = '0';
+	else
+	{
+		p = ptr;	// save start pointer
+		while (intPart) { // convert (reverse order)
+			*p++ = '0' + intPart % 10;
+			intPart /= 10;
+		}
+		p1 = p;  // save end pos
+		while (p > ptr)	{ // reverse result
+			c = *--p;
+			*p = *ptr;
+			*ptr++ = c;
+		}
+		ptr = p1;	// restore end pos
+	}
+	if (precision) {	// decimal part
+		*ptr++ = '.';	// place decimal point
+		while (precision--)	 { // convert
+			f *= 10.0;
+			c = f;
+			*ptr++ = '0' + c;
+			f -= c;
+		}
+	}
+	*ptr = 0;	// terminating zero
+	return buf;
+}
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -101,6 +173,7 @@ int main(void)
   MX_TIM1_Init();
   MX_RTC_Init();
   MX_USB_DEVICE_Init();
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
   /* USER CODE END 2 */
 
@@ -124,6 +197,11 @@ int main(void)
   HX710B.halt = delay_microSeconds;
   HX710B.init(&pressure_sensor1,SCK_, SDI_, MODE_DIFF1);
 //  HX710B.init(&pressure_sensor1,SDI_, SCK_);
+
+  AHT10.halt = HAL_Delay;
+  AHT10.getTick = HAL_GetTick;
+  AHT10_var AHT1;
+  AHT10.begin(&AHT1, &hi2c1,0x38);
   char txt[20]="halloooo \n";
   char tmp[64];
   while (1)
@@ -143,6 +221,15 @@ int main(void)
 //		  float scale = press_adc * (-0.000018);
 //		  sprintf(tmp,"voltage = %i \n\r",scale*1E+6);
 //		  USBSerial.puts((uint8_t*)tmp, strlen(tmp));
+	  }
+
+	  if( AHT10.getEvent(&AHT1, 100UL) == AHT10_OK )
+	  {
+		  sprintf(tmp,"AHT ada \n\r");
+		  USBSerial.puts((uint8_t*)tmp, strlen(tmp));
+		  char val[10];
+		  sprintf(tmp, "temperature %s", ftoa(AHT1.temperature, val, 3));
+		  USBSerial.puts((uint8_t*)tmp, strlen(tmp));
 	  }
 
 	  HAL_Delay(500);
@@ -201,6 +288,40 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief I2C1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_I2C1_Init(void)
+{
+
+  /* USER CODE BEGIN I2C1_Init 0 */
+
+  /* USER CODE END I2C1_Init 0 */
+
+  /* USER CODE BEGIN I2C1_Init 1 */
+
+  /* USER CODE END I2C1_Init 1 */
+  hi2c1.Instance = I2C1;
+  hi2c1.Init.ClockSpeed = 100000;
+  hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
+  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c1.Init.OwnAddress2 = 0;
+  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN I2C1_Init 2 */
+
+  /* USER CODE END I2C1_Init 2 */
+
 }
 
 /**
@@ -347,14 +468,14 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin : Pres1_SCK_Pin */
   GPIO_InitStruct.Pin = Pres1_SCK_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(Pres1_SCK_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : Pres1_SDO_Pin */
   GPIO_InitStruct.Pin = Pres1_SDO_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(Pres1_SDO_GPIO_Port, &GPIO_InitStruct);
 
 }

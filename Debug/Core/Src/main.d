@@ -22,6 +22,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h \
@@ -37,6 +39,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../USB_DEVICE/Target/usbd_conf.h \
  D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/BASIC_IO/BASIC_LOGIC.h \
  D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/HX710B/HX710B.h \
+ D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/AHT10/AHT10.h \
  D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/E32_915T30D/E32_915T30.h \
  D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/BASIC_IO/micro_delay.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h \
@@ -101,6 +104,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h:
 
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:
+
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h:
+
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
@@ -130,6 +137,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/BASIC_IO/BASIC_LOGIC.h:
 
 D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/HX710B/HX710B.h:
+
+D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/AHT10/AHT10.h:
 
 D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/E32_915T30D/E32_915T30.h:
 

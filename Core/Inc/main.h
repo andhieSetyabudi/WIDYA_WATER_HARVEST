@@ -33,6 +33,12 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+/*
+ *	link inventarisir
+ *	https://docs.google.com/forms/d/e/1FAIpQLSeU8Q7VNlWPD_rC-im2VrV0ZdfmHnaisohAi2th2I_oTFIaOQ/viewform?usp=sf_link
+ *
+ */
+
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -54,7 +60,17 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-
+#define MAX_PRECISION	(4)
+static const float rounders[MAX_PRECISION + 1] =
+{
+	0.5,				// 0
+	0.05,				// 1
+	0.005,				// 2
+	0.0005,				// 3
+	0.00005,			// 4
+};
+char * getUUID(char * buff);
+char* ftoa(float f, char * buf, int precision);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/

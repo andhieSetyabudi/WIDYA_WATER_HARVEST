@@ -23,12 +23,14 @@ OBJCOPY_BIN :=
 SUBDIRS := \
 Core/Src \
 Core/Startup \
+Drivers/AHT10 \
 Drivers/BASIC_IO \
 Drivers/E32_915T30D \
 Drivers/HX710B \
 Drivers/SERIAL \
 Drivers/SERIAL/USBSerial \
 Drivers/STM32F4xx_HAL_Driver/Src \
+Drivers/Soft_I2C \
 Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src \
 Middlewares/ST/STM32_USB_Device_Library/Core/Src \
 USB_DEVICE/App \

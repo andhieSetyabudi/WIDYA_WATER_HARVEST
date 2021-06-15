@@ -13,12 +13,14 @@ RM := rm -rf
 -include USB_DEVICE/App/subdir.mk
 -include Middlewares/ST/STM32_USB_Device_Library/Core/Src/subdir.mk
 -include Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/subdir.mk
+-include Drivers/Soft_I2C/subdir.mk
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
 -include Drivers/SERIAL/USBSerial/subdir.mk
 -include Drivers/SERIAL/subdir.mk
 -include Drivers/HX710B/subdir.mk
 -include Drivers/E32_915T30D/subdir.mk
 -include Drivers/BASIC_IO/subdir.mk
+-include Drivers/AHT10/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
 -include subdir.mk
