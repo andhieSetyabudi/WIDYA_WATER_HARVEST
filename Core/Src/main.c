@@ -29,6 +29,7 @@
 #include "E32_915T30.h"
 
 #include "SerialUSB.h"
+#include "HALSerial.h"
 
 /* USER CODE END Includes */
 
@@ -193,6 +194,7 @@ int main(void)
   };
   HX710B_var pressure_sensor1;
   USBSerial.begin();
+  Serial1.begin(9600);
   delay_microsInit();
   HX710B.halt = delay_microSeconds;
   HX710B.init(&pressure_sensor1,SCK_, SDI_, MODE_DIFF1);
@@ -234,6 +236,14 @@ int main(void)
 
 	  HAL_Delay(500);
 	  digitalToggle(LED_pin_);
+	  if(Serial1.available() > 0)
+	  {
+		  size_t n_ = Serial1.available();
+		  char tBuf[n_];
+		  Serial1.gets(tBuf,n_);
+		  USBSerial.puts((uint8_t*)tBuf, strlen(tBuf));
+
+	  }
 
   }
   /* USER CODE END 3 */

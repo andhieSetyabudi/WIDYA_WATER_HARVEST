@@ -54,7 +54,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
  ../USB_DEVICE/App/usbd_cdc_if.h \
  d:\andri\widya\ imersif\firmware-test\drivers\serial\stream.h \
- d:\andri\widya\ imersif\firmware-test\drivers\serial\Print.h
+ d:\andri\widya\ imersif\firmware-test\drivers\serial\Print.h \
+ D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/SERIAL/HALSerial.h \
+ D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/SERIAL/Stream.h
 
 ../Core/Inc/main.h:
 
@@ -169,3 +171,7 @@ D:/Andri/WIdya\ Imersif/Firmware-test/Middlewares/ST/STM32_USB_Device_Library/Cl
 d:\andri\widya\ imersif\firmware-test\drivers\serial\stream.h:
 
 d:\andri\widya\ imersif\firmware-test\drivers\serial\Print.h:
+
+D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/SERIAL/HALSerial.h:
+
+D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/SERIAL/Stream.h:

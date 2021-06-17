@@ -167,6 +167,7 @@ NVIC.BusFault_IRQn=true\:0\:0\:false\:false\:true\:false\:false
 TIM1.Period=0xffff-1
 USB_OTG_FS.IPParameters=VirtualMode
 RCC.MSIAutoCalibration=DISABLED
+NVIC.USART1_IRQn=true\:0\:0\:false\:false\:true\:true\:true
 RCC.APB1Freq_Value=30000000
 PB8.GPIO_Speed=GPIO_SPEED_FREQ_LOW
 USB_DEVICE.VirtualMode=Cdc

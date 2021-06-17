@@ -29,63 +29,63 @@ extern UART_HandleTypeDef huart1;
 //===================================
 #define  begin() begin(9600)
 
-static void Serial4_begin(uint32_t baudrate)
+static void Serial1_begin(uint32_t baudrate)
 {
-  HALSerial__construct (&Serial4.serialParam);
-  Serial4.serialParam._written = FALSE;
+  HALSerial__construct (&Serial1.serialParam);
+  Serial1.serialParam._written = FALSE;
 //  HAL_UART_Init(this->huart);
-  while(HAL_UART_Receive_IT(&huart1, Serial4.serialParam._rx_buffer + Serial4.serialParam._rx_buffer_head, 1) == HAL_BUSY);
+  while(HAL_UART_Receive_IT(&huart1, Serial1.serialParam._rx_buffer + Serial1.serialParam._rx_buffer_head, 1) == HAL_BUSY);
 
-  Serial4.serialParam.huart->Init.BaudRate = baudrate;
-  HALSerial_begin(&Serial4.serialParam);
-  HAL_UART_Receive_IT(&Serial4.serialParam.huart, Serial4.serialParam._rx_buffer, HALSERIAL_RX_BUFFER_SIZE);
-  HAL_UART_Transmit_IT(&Serial4.serialParam.huart, Serial4.serialParam._tx_buffer, HALSERIAL_TX_BUFFER_SIZE);
+  Serial1.serialParam.huart->Init.BaudRate = baudrate;
+  HALSerial_begin(&Serial1.serialParam);
+  HAL_UART_Receive_IT(&Serial1.serialParam.huart, Serial1.serialParam._rx_buffer, HALSERIAL_RX_BUFFER_SIZE);
+  HAL_UART_Transmit_IT(&Serial1.serialParam.huart, Serial1.serialParam._tx_buffer, HALSERIAL_TX_BUFFER_SIZE);
 }
 
-static void Serial4_setTimeout(uint32_t timeout)
+static void Serial1_setTimeout(uint32_t timeout)
 {
-  Serial4.serialParam._timeout = timeout;
+  Serial1.serialParam._timeout = timeout;
 }
 
-static void Serial4_end(void)	 	{HALSerial_end(&Serial4.serialParam);}
-static int Serial4_available(void)	{return HALSerial_available(&Serial4.serialParam);}
-static int Serial4_peek(void)		{return HALSerial_peek(&Serial4.serialParam);}
-static int Serial4_availableForWrite(void){return HALSerial_availableForWrite(&Serial4.serialParam);}
-static void Serial4_flush(void)		{HALSerial_flush(&Serial4.serialParam);}
-static size_t Serial4_write(uint8_t c)	{return HALSerial_writeByte(&Serial4.serialParam, c);}
-static size_t Serial4_puts(const uint8_t *str, size_t size){return HALSerial_write(&Serial4.serialParam, str, size);}
-static int Serial4_read(void)		{return HALSerial_read(&Serial4.serialParam);}
-static size_t Serial4_readUntil(char terminator, char *buffer, size_t length) {return HALSerial_readBytesUntil(&Serial4.serialParam,terminator,buffer, length);}
-static int Serial4_readTimeout(void)	{return HALSerial_timedRead(&Serial4.serialParam);}
-static size_t Serial4_gets(char* buffer, size_t len) {return HALSerial_readBytes(&Serial4.serialParam, buffer, len);}
+static void Serial1_end(void)	 	{HALSerial_end(&Serial1.serialParam);}
+static int Serial1_available(void)	{return HALSerial_available(&Serial1.serialParam);}
+static int Serial1_peek(void)		{return HALSerial_peek(&Serial1.serialParam);}
+static int Serial1_availableForWrite(void){return HALSerial_availableForWrite(&Serial1.serialParam);}
+static void Serial1_flush(void)		{HALSerial_flush(&Serial1.serialParam);}
+static size_t Serial1_write(uint8_t c)	{return HALSerial_writeByte(&Serial1.serialParam, c);}
+static size_t Serial1_puts(const uint8_t *str, size_t size){return HALSerial_write(&Serial1.serialParam, str, size);}
+static int Serial1_read(void)		{return HALSerial_read(&Serial1.serialParam);}
+static size_t Serial1_readUntil(char terminator, char *buffer, size_t length) {return HALSerial_readBytesUntil(&Serial1.serialParam,terminator,buffer, length);}
+static int Serial1_readTimeout(void)	{return HALSerial_timedRead(&Serial1.serialParam);}
+static size_t Serial1_gets(char* buffer, size_t len) {return HALSerial_readBytes(&Serial1.serialParam, buffer, len);}
 char serial_buffer_print[256];
-static size_t Serial4_print(const char fmt[], ...)
+static size_t Serial1_print(const char fmt[], ...)
 {
   va_list args;
   va_start(args, fmt);
   vsnprintf(serial_buffer_print, sizeof(serial_buffer_print), fmt, args);
   va_end(args);
-  size_t ret = Serial4_puts(serial_buffer_print, strlen(serial_buffer_print));
+  size_t ret = Serial1_puts(serial_buffer_print, strlen(serial_buffer_print));
   return ret;
 }
 
-Serial Serial4 =
+Serial Serial1 =
 {
-    .begin 	= Serial4_begin,
-    .setTimeout = Serial4_setTimeout,
-    .end	= Serial4_end,
-    .available  = Serial4_available,
-    .peek	= Serial4_peek,
-    .availableForWrite = Serial4_availableForWrite,
-    .flush	= Serial4_flush,
-    .write	= Serial4_write,
-    .puts	= Serial4_puts,
+    .begin 				= Serial1_begin,
+    .setTimeout 		= Serial1_setTimeout,
+    .end				= Serial1_end,
+    .available  		= Serial1_available,
+    .peek				= Serial1_peek,
+    .availableForWrite 	= Serial1_availableForWrite,
+    .flush				= Serial1_flush,
+    .write				= Serial1_write,
+    .puts				= Serial1_puts,
 
-    .read	= Serial4_read,
-    .readUntil 	= Serial4_readUntil,
-    .readTimeout = Serial4_readTimeout,
-    .gets	= Serial4_gets,
-    .print	= Serial4_print,
+    .read				= Serial1_read,
+    .readUntil 			= Serial1_readUntil,
+    .readTimeout 		= Serial1_readTimeout,
+    .gets				= Serial1_gets,
+    .print				= Serial1_print,
 
     .serialParam = {
 	    .huart = &huart1,
@@ -96,8 +96,6 @@ Serial Serial4 =
 	    .delay = HAL_Delay,
 	  #endif
 	  },
-
-
 };
 
 
@@ -105,8 +103,14 @@ Serial Serial4 =
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-  if (huart->Instance == USART1)
-    HALSerial__rx_complete_irq(&Serial4.serialParam);
+	if( huart != NULL )
+	{
+		if (huart->Instance == USART1)
+			HALSerial__rx_complete_irq(&Serial1.serialParam);
+		if (huart->Instance == USART2)
+			HALSerial__rx_complete_irq(&Serial1.serialParam);
+	}
+
 }
 
 /**
@@ -116,8 +120,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
   */
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 {
+	if ( huart == NULL)
+		return;
   if (huart->Instance == USART1)
-	HALSerial__tx_complete_irq(&Serial4.serialParam);
+	HALSerial__tx_complete_irq(&Serial1.serialParam);
 }
 
 

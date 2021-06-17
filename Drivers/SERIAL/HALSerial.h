@@ -136,5 +136,5 @@ typedef struct Serial
 
 }Serial;
 
-extern Serial Serial4;
+extern Serial Serial1;
 #endif /* SERIAL_HALSERIAL_H_ */
