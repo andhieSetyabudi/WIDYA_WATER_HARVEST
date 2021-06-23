@@ -31,6 +31,7 @@ Drivers/SERIAL \
 Drivers/SERIAL/USBSerial \
 Drivers/STM32F4xx_HAL_Driver/Src \
 Drivers/Soft_I2C \
+Drivers/VOC_sensor \
 Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src \
 Middlewares/ST/STM32_USB_Device_Library/Core/Src \
 USB_DEVICE/App \

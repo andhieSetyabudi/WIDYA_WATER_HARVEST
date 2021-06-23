@@ -28,6 +28,8 @@
 #include "AHT10.h"
 #include "E32_915T30.h"
 
+#include "SGP40.h"
+
 #include "SerialUSB.h"
 #include "HALSerial.h"
 

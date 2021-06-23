@@ -43,6 +43,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/E32_915T30D/E32_915T30.h \
  D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/BASIC_IO/micro_delay.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h \
+ D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/VOC_sensor/SGP40.h \
+ D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/VOC_sensor/sensirion_arch_config.h \
+ D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/VOC_sensor/sensirion_voc_algorithm.h \
  D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/SERIAL/USBSerial/SerialUSB.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
@@ -147,6 +150,12 @@ D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/E32_915T30D/E32_915T30.h:
 D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/BASIC_IO/micro_delay.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:
+
+D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/VOC_sensor/SGP40.h:
+
+D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/VOC_sensor/sensirion_arch_config.h:
+
+D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/VOC_sensor/sensirion_voc_algorithm.h:
 
 D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/SERIAL/USBSerial/SerialUSB.h:
 
