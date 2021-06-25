@@ -75,6 +75,14 @@ typedef struct{
 	VocAlgorithmParams _vocaAgorithmParams;
 }SGP40_var;
 
-static SGP40_status SGP40_begin(I2C_HandleTypeDef *i2c_ch, uint8_t addr, uint32_t duration);
+static SGP40_status SGP40_begin(SGP40_var *var, I2C_HandleTypeDef *i2c_ch, uint8_t addr, uint32_t duration);
+
+static SGP40_status SGP40_isDevice(SGP40_var *var);
+
+static SGP40_status SGP40_setRhT(SGP40_var *var, float relativeHumidity, float temperatureC, uint32_t timeout_);
+
+static SGP40_status SGP40_heaterOff(SGP40_var *var, uint32_t timeout_);
+
+static void SGP40_dataTransform(SGP40_var *var);
 
 #endif /* VOC_SENSOR_SGP40_H_ */

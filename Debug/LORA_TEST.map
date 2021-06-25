@@ -5733,6 +5733,206 @@ Discarded input sections
  .debug_frame   0x0000000000000000      0x4c8 Drivers/Soft_I2C/soft_i2c.o
  .ARM.attributes
                 0x0000000000000000       0x34 Drivers/Soft_I2C/soft_i2c.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .group         0x0000000000000000        0xc Drivers/VOC_sensor/SGP40.o
+ .text          0x0000000000000000        0x0 Drivers/VOC_sensor/SGP40.o
+ .data          0x0000000000000000        0x0 Drivers/VOC_sensor/SGP40.o
+ .bss           0x0000000000000000        0x0 Drivers/VOC_sensor/SGP40.o
+ .rodata.rounders
+                0x0000000000000000       0x14 Drivers/VOC_sensor/SGP40.o
+ .text.checkCrc
+                0x0000000000000000       0x7a Drivers/VOC_sensor/SGP40.o
+ .text.SGP40_write
+                0x0000000000000000       0x32 Drivers/VOC_sensor/SGP40.o
+ .text.SGP40_read
+                0x0000000000000000       0x32 Drivers/VOC_sensor/SGP40.o
+ .rodata        0x0000000000000000        0x3 Drivers/VOC_sensor/SGP40.o
+ .text.SGP40_readRAW
+                0x0000000000000000       0x64 Drivers/VOC_sensor/SGP40.o
+ .text.SGP40_isDevice
+                0x0000000000000000       0x34 Drivers/VOC_sensor/SGP40.o
+ .text.SGP40_begin
+                0x0000000000000000       0x88 Drivers/VOC_sensor/SGP40.o
+ .text.SGP40_setRhT
+                0x0000000000000000       0x3e Drivers/VOC_sensor/SGP40.o
+ .text.SGP40_heaterOff
+                0x0000000000000000       0x28 Drivers/VOC_sensor/SGP40.o
+ .text.SGP40_dataTransform
+                0x0000000000000000       0xf8 Drivers/VOC_sensor/SGP40.o
+ .debug_info    0x0000000000000000     0x1583 Drivers/VOC_sensor/SGP40.o
+ .debug_abbrev  0x0000000000000000      0x267 Drivers/VOC_sensor/SGP40.o
+ .debug_aranges
+                0x0000000000000000       0x60 Drivers/VOC_sensor/SGP40.o
+ .debug_ranges  0x0000000000000000       0x50 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x400 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0xaa8 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x2ad Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x2e Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x28 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x22 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x8e Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x51 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x103 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x6a Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x1df Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x1c Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x22 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0xdf Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000     0x102d Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x11f Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000     0xb937 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x43 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000     0x3659 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x16d Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x5c Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x447 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x9fe Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x117 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x11b Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x82 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x15f Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x287 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x5f Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x236 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x132 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x264 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x2e Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x1b5 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x22 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0xd6 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x11a Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x85 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x89 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x31a Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x405 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0xe4 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x8d1 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x47 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x295 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x21e Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0xba Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x126 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x2e Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x52 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x18 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x3c Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x34 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x16 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x35 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x356 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x10 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x16 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x43 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x34 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x10 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x58 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x71 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x16 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x12a Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x10 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x1c Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x52 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x22 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x10 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x40 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0xd5 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x1c Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x3d Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x16 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000      0x145 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x22 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x16 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x16 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x29 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x22 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0xb2 Drivers/VOC_sensor/SGP40.o
+ .debug_macro   0x0000000000000000       0x8e Drivers/VOC_sensor/SGP40.o
+ .debug_line    0x0000000000000000      0xb7b Drivers/VOC_sensor/SGP40.o
+ .debug_str     0x0000000000000000    0x938a9 Drivers/VOC_sensor/SGP40.o
+ .comment       0x0000000000000000       0x54 Drivers/VOC_sensor/SGP40.o
+ .debug_frame   0x0000000000000000      0x158 Drivers/VOC_sensor/SGP40.o
+ .ARM.attributes
+                0x0000000000000000       0x34 Drivers/VOC_sensor/SGP40.o
  .group         0x0000000000000000        0xc Drivers/VOC_sensor/sensirion_voc_algorithm.o
  .group         0x0000000000000000        0xc Drivers/VOC_sensor/sensirion_voc_algorithm.o
  .group         0x0000000000000000        0xc Drivers/VOC_sensor/sensirion_voc_algorithm.o
@@ -7469,6 +7669,7 @@ LOAD Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
 LOAD Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o
 LOAD Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.o
 LOAD Drivers/Soft_I2C/soft_i2c.o
+LOAD Drivers/VOC_sensor/SGP40.o
 LOAD Drivers/VOC_sensor/sensirion_voc_algorithm.o
 LOAD Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o
 LOAD Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
