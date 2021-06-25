@@ -1161,11 +1161,11 @@ int main(void)
  8000c06:	498c      	ldr	r1, [pc, #560]	; (8000e38 <main+0x2e0>)
  8000c08:	4798      	blx	r3
 
-  SGP40.begin(&VOC_sensor, &hi2c1,DFRobot_SGP40_ICC_ADDR, 1000UL );
+  SGP40.begin(&VOC_sensor, &hi2c1,DFRobot_SGP40_ICC_ADDR, 10000UL);
  8000c0a:	4b83      	ldr	r3, [pc, #524]	; (8000e18 <main+0x2c0>)
  8000c0c:	685c      	ldr	r4, [r3, #4]
  8000c0e:	f107 0078 	add.w	r0, r7, #120	; 0x78
- 8000c12:	f44f 737a 	mov.w	r3, #1000	; 0x3e8
+ 8000c12:	f242 7310 	movw	r3, #10000	; 0x2710
  8000c16:	2259      	movs	r2, #89	; 0x59
  8000c18:	4987      	ldr	r1, [pc, #540]	; (8000e38 <main+0x2e0>)
  8000c1a:	47a0      	blx	r4

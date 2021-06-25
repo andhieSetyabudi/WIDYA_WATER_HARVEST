@@ -210,7 +210,7 @@ int main(void)
   AHT10_var AHT1;
   AHT10.begin(&AHT1, &hi2c1,0x38);
 
-  SGP40.begin(&VOC_sensor, &hi2c1,DFRobot_SGP40_ICC_ADDR, 1000UL );
+  SGP40.begin(&VOC_sensor, &hi2c1,DFRobot_SGP40_ICC_ADDR, 10000UL);
   char txt[20]="halloooo \n";
   char tmp[64];
   while (1)

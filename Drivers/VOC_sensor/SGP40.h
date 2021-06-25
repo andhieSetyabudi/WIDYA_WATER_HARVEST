@@ -100,7 +100,10 @@ typedef struct{
 				SGP40_status (*softReset)	(SGP40_var *var);
 				SGP40_status (*getVOCIndex)	(SGP40_var *var, uint16_t *VOC_index, uint32_t timeout_);
 }SGP40_funct;
-
-
 extern SGP40_funct SGP40;
+
+
+
+
+
 #endif /* VOC_SENSOR_SGP40_H_ */
