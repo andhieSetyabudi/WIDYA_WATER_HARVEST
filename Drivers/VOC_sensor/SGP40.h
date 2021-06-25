@@ -83,6 +83,24 @@ static SGP40_status SGP40_setRhT(SGP40_var *var, float relativeHumidity, float t
 
 static SGP40_status SGP40_heaterOff(SGP40_var *var, uint32_t timeout_);
 
+static SGP40_status SGP40_softReset(SGP40_var *var);
+
+static SGP40_status SGP40_getVOCIndex(SGP40_var *var, uint16_t *VOC_index, uint32_t timeout_);
+
+static SGP40_status SGP40_measurementTest(SGP40_var *var);
+
 static void SGP40_dataTransform(SGP40_var *var);
 
+typedef struct{
+				void (*halt)				(uint32_t time_halt);
+				SGP40_status (*begin)		(SGP40_var *var, I2C_HandleTypeDef *i2c_ch, uint8_t addr, uint32_t duration);
+				SGP40_status (*isDevice)	(SGP40_var *var );
+				SGP40_status (*setRhT)		(SGP40_var *var, float relativeHumidity, float temperatureC, uint32_t timeout_);
+				SGP40_status (*heaterOff)	(SGP40_var *var, uint32_t timeout_);
+				SGP40_status (*softReset)	(SGP40_var *var);
+				SGP40_status (*getVOCIndex)	(SGP40_var *var, uint16_t *VOC_index, uint32_t timeout_);
+}SGP40_funct;
+
+
+extern SGP40_funct SGP40;
 #endif /* VOC_SENSOR_SGP40_H_ */

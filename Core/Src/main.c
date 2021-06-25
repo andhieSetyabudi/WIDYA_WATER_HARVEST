@@ -195,6 +195,9 @@ int main(void)
 		  .pin = Pres1_SCK_Pin,
   };
   HX710B_var pressure_sensor1;
+  SGP40_var VOC_sensor;
+  SGP40.halt = HAL_Delay;
+
   USBSerial.begin();
   Serial1.begin(9600);
   delay_microsInit();
@@ -206,6 +209,8 @@ int main(void)
   AHT10.getTick = HAL_GetTick;
   AHT10_var AHT1;
   AHT10.begin(&AHT1, &hi2c1,0x38);
+
+  SGP40.begin(&VOC_sensor, &hi2c1,DFRobot_SGP40_ICC_ADDR, 1000UL );
   char txt[20]="halloooo \n";
   char tmp[64];
   while (1)
@@ -233,6 +238,12 @@ int main(void)
 		  USBSerial.puts((uint8_t*)tmp, strlen(tmp));
 		  char val[10];
 		  sprintf(tmp, "temperature %s", ftoa(AHT1.temperature, val, 3));
+		  USBSerial.puts((uint8_t*)tmp, strlen(tmp));
+	  }
+	  uint16_t voc_index = 0;
+	  if ( SGP40.getVOCIndex(&VOC_sensor, &voc_index, 1000) == SGP40_OK )
+	  {
+		  sprintf(tmp, "VOC = %i \n\r", voc_index);
 		  USBSerial.puts((uint8_t*)tmp, strlen(tmp));
 	  }
 

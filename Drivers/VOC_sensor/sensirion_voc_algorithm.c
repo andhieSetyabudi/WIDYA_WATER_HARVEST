@@ -44,11 +44,11 @@
 /*!< fix16_t value of 1 */
 #define FIX16_ONE 0x00010000
 
-inline fix16_t fix16_from_int(int32_t a) {
+static __inline__ fix16_t fix16_from_int(int32_t a) {
     return a * FIX16_ONE;
 }
 
-inline int32_t fix16_cast_to_int(fix16_t a) {
+static __inline__ int32_t fix16_cast_to_int(fix16_t a) {
     return (a >> 16);
 }
 

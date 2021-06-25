@@ -1,3 +1,5 @@
+sensirion_voc_algorithm.c:47:27:fix16_from_int	16	static
+sensirion_voc_algorithm.c:51:27:fix16_cast_to_int	16	static
 sensirion_voc_algorithm.c:67:16:fix16_mul	64	static
 sensirion_voc_algorithm.c:121:16:fix16_div	40	static
 sensirion_voc_algorithm.c:190:16:fix16_sqrt	32	static
