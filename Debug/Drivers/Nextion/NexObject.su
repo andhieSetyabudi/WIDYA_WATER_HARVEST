@@ -1,0 +1,4 @@
+NexObject.h:39:24:nex_createObject	24	static
+NexObject.h:46:27:nex_getObjPid	8	static
+NexObject.h:51:27:nex_getObjCid	8	static
+NexObject.h:56:31:nex_getObjName	8	static

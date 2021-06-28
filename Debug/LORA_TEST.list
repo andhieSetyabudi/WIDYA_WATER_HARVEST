@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  000204bc  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0002be38  00000000  00000000  000204ec  2**0
+ 12 .debug_info   0002bfd9  00000000  00000000  000204ec  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00005c67  00000000  00000000  0004c324  2**0
+ 13 .debug_abbrev 00005c78  00000000  00000000  0004c4c5  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00001d18  00000000  00000000  00051f90  2**3
+ 14 .debug_aranges 00001d18  00000000  00000000  00052140  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 00001b48  00000000  00000000  00053ca8  2**3
+ 15 .debug_ranges 00001b48  00000000  00000000  00053e58  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  0001e608  00000000  00000000  000557f0  2**0
+ 16 .debug_macro  0001e543  00000000  00000000  000559a0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   000246ae  00000000  00000000  00073df8  2**0
+ 17 .debug_line   00024710  00000000  00000000  00073ee3  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0009f758  00000000  00000000  000984a6  2**0
+ 18 .debug_str    0009faa4  00000000  00000000  000985f3  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  00137bfe  2**0
+ 19 .comment      00000053  00000000  00000000  00138097  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00007ef8  00000000  00000000  00137c54  2**2
+ 20 .debug_frame  00007ef8  00000000  00000000  001380ec  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -3776,7 +3776,7 @@ void delay_microSeconds(uint32_t us)
  *  check the state of SDO pin,
  *  if pin state is low, mean data is ready
  */
-static HX710B_status HX710BIsReady(HX710B_var *var, uint32_t timeout_)
+HX710B_status HX710BIsReady(HX710B_var *var, uint32_t timeout_)
 {
  8001b3c:	b580      	push	{r7, lr}
  8001b3e:	b084      	sub	sp, #16
@@ -3868,7 +3868,7 @@ static HX710B_status HX710BIsReady(HX710B_var *var, uint32_t timeout_)
  *  Read the data conversion
  *  data range : 0x800000 to 0x7FFFFF
  */
-static HX710B_status HX710BRead(HX710B_var *var, int * data, uint32_t timeout_)
+HX710B_status HX710BRead(HX710B_var *var, int * data, uint32_t timeout_)
 {
  8001bcc:	b580      	push	{r7, lr}
  8001bce:	b086      	sub	sp, #24
@@ -4030,7 +4030,7 @@ static HX710B_status HX710BRead(HX710B_var *var, int * data, uint32_t timeout_)
 08001ce4 <HX710BSetMode>:
 
 
-static HX710B_status HX710BSetMode(HX710B_var *var, uint8_t mode, uint8_t timeout_)
+HX710B_status HX710BSetMode(HX710B_var *var, uint8_t mode, uint8_t timeout_)
 {
  8001ce4:	b580      	push	{r7, lr}
  8001ce6:	b082      	sub	sp, #8
@@ -4056,7 +4056,7 @@ static HX710B_status HX710BSetMode(HX710B_var *var, uint8_t mode, uint8_t timeou
 08001d0a <HX710BInit>:
 
 
-static HX710B_status HX710BInit(HX710B_var* var, PORT_IO SCI, PORT_IO SDO, uint8_t mode_)
+HX710B_status HX710BInit(HX710B_var* var, PORT_IO SCI, PORT_IO SDO, uint8_t mode_)
 {
  8001d0a:	b082      	sub	sp, #8
  8001d0c:	b580      	push	{r7, lr}

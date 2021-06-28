@@ -27,6 +27,7 @@ Drivers/AHT10 \
 Drivers/BASIC_IO \
 Drivers/E32_915T30D \
 Drivers/HX710B \
+Drivers/Nextion \
 Drivers/SERIAL \
 Drivers/SERIAL/USBSerial \
 Drivers/STM32F4xx_HAL_Driver/Src \

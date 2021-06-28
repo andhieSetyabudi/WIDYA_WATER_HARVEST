@@ -30,7 +30,7 @@ uint8_t shiftInSlow(HX710B_var *var) {
  *  check the state of SDO pin,
  *  if pin state is low, mean data is ready
  */
-static HX710B_status HX710BIsReady(HX710B_var *var, uint32_t timeout_)
+HX710B_status HX710BIsReady(HX710B_var *var, uint32_t timeout_)
 {
 	uint32_t time_s = HAL_GetTick();
 	while( digitalRead(var->DO) != PORT_LOW )
@@ -56,7 +56,7 @@ static HX710B_status HX710BIsReady(HX710B_var *var, uint32_t timeout_)
  *  Read the data conversion
  *  data range : 0x800000 to 0x7FFFFF
  */
-static HX710B_status HX710BRead(HX710B_var *var, int * data, uint32_t timeout_)
+HX710B_status HX710BRead(HX710B_var *var, int * data, uint32_t timeout_)
 {
 	// exit sleep mode
 	digitalWrite(var->SCI, PORT_LOW);
@@ -89,13 +89,13 @@ static HX710B_status HX710BRead(HX710B_var *var, int * data, uint32_t timeout_)
 }
 
 
-static HX710B_status HX710BSetMode(HX710B_var *var, uint8_t mode, uint8_t timeout_)
+HX710B_status HX710BSetMode(HX710B_var *var, uint8_t mode, uint8_t timeout_)
 {
 	return HX710BRead(var, NULL, timeout_);
 }
 
 
-static HX710B_status HX710BInit(HX710B_var* var, PORT_IO SCI, PORT_IO SDO, uint8_t mode_)
+HX710B_status HX710BInit(HX710B_var* var, PORT_IO SCI, PORT_IO SDO, uint8_t mode_)
 {
 	var->DO  = SDO;
 	var->SCI = SCI;

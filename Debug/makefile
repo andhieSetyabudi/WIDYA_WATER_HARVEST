@@ -18,6 +18,7 @@ RM := rm -rf
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
 -include Drivers/SERIAL/USBSerial/subdir.mk
 -include Drivers/SERIAL/subdir.mk
+-include Drivers/Nextion/subdir.mk
 -include Drivers/HX710B/subdir.mk
 -include Drivers/E32_915T30D/subdir.mk
 -include Drivers/BASIC_IO/subdir.mk

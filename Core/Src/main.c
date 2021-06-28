@@ -30,11 +30,14 @@
 
 #include "SGP40.h"
 
+#include "nextion.h"
+
 #include "SerialUSB.h"
 #include "HALSerial.h"
 
 /* USER CODE END Includes */
 
+//__typeof__ (NexObject_func) alpha;
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 
