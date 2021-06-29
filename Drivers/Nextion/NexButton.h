@@ -60,7 +60,7 @@ static uint32_t NexButton_Get_press_background_color_bco2(NexObject_var *obj, ui
  * @param number - To set up the data
  * @return true if success, false for failure
  */
-bool Set_press_background_color_bco2(uint32_t number);
+static bool NexButton_Set_press_background_color_bco2(NexObject_var *obj, uint32_t number);
 
 /**
  * Get pco attribute of component
@@ -68,7 +68,7 @@ bool Set_press_background_color_bco2(uint32_t number);
  * @param number - buffer storing data return
  * @return the length of the data
  */
-uint32_t Get_font_color_pco(uint32_t *number);
+static uint32_t NexButton_Get_font_color_pco(NexObject_var *obj, uint32_t *number);
 
 /**
  * Set pco attribute of component
@@ -76,7 +76,7 @@ uint32_t Get_font_color_pco(uint32_t *number);
  * @param number - To set up the data
  * @return true if success, false for failure
  */
-bool Set_font_color_pco(uint32_t number);
+static bool NexButton_Set_font_color_pco(NexObject_var *obj, uint32_t number);
 
 /**
  * Get pco2 attribute of component
@@ -84,7 +84,7 @@ bool Set_font_color_pco(uint32_t number);
  * @param number - buffer storing data return
  * @return the length of the data
  */
-uint32_t Get_press_font_color_pco2(uint32_t *number);
+static uint32_t NexButton_Get_press_font_color_pco2(NexObject_var *obj, uint32_t *number);
 
 /**
  * Set pco2 attribute of component
@@ -92,7 +92,7 @@ uint32_t Get_press_font_color_pco2(uint32_t *number);
  * @param number - To set up the data
  * @return true if success, false for failure
  */
-bool Set_press_font_color_pco2(uint32_t number);
+static bool NexButton_Set_press_font_color_pco2(NexObject_var *obj, uint32_t number);
 
 /**
  * Get xcen attribute of component
@@ -100,7 +100,7 @@ bool Set_press_font_color_pco2(uint32_t number);
  * @param number - buffer storing data return
  * @return the length of the data
  */
-uint32_t Get_place_xcen(uint32_t *number);
+static uint32_t NexButton_Get_place_xcen(NexObject_var *obj, uint32_t *number);
 
 /**
  * Set xcen attribute of component
@@ -108,7 +108,7 @@ uint32_t Get_place_xcen(uint32_t *number);
  * @param number - To set up the data
  * @return true if success, false for failure
  */
-bool Set_place_xcen(uint32_t number);
+static bool NexButton_Set_place_xcen(NexObject_var *obj, uint32_t number);
 
 /**
  * Get ycen attribute of component
@@ -116,7 +116,7 @@ bool Set_place_xcen(uint32_t number);
  * @param number - buffer storing data return
  * @return the length of the data
  */
-uint32_t Get_place_ycen(uint32_t *number);
+static uint32_t NexButton_Get_place_ycen(NexObject_var *obj, uint32_t *number);
 
 /**
  * Set ycen attribute of component
@@ -124,7 +124,7 @@ uint32_t Get_place_ycen(uint32_t *number);
  * @param number - To set up the data
  * @return true if success, false for failure
  */
-bool Set_place_ycen(uint32_t number);
+static bool NexButton_Set_place_ycen(NexObject_var *obj, uint32_t number);
 
 /**
  * Get font attribute of component
@@ -132,7 +132,7 @@ bool Set_place_ycen(uint32_t number);
  * @param number - buffer storing data return
  * @return the length of the data
  */
-uint32_t getFont(uint32_t *number);
+static uint32_t NexButton_getFont(NexObject_var *obj, uint32_t *number);
 
 /**
  * Set font attribute of component
@@ -140,7 +140,7 @@ uint32_t getFont(uint32_t *number);
  * @param number - To set up the data
  * @return true if success, false for failure
  */
-bool setFont(uint32_t number);
+static bool NexButton_setFont(NexObject_var *obj, uint32_t number);
 
 /**
  * Get picc attribute of component
@@ -148,7 +148,7 @@ bool setFont(uint32_t number);
  * @param number - buffer storing data return
  * @return the length of the data
  */
-uint32_t Get_background_cropi_picc(uint32_t *number);
+static uint32_t NexButton_Get_background_cropi_picc(NexObject_var *obj, uint32_t *number);
 
 /**
  * Set picc attribute of component
@@ -156,7 +156,7 @@ uint32_t Get_background_cropi_picc(uint32_t *number);
  * @param number - To set up the data
  * @return true if success, false for failure
  */
-bool Set_background_crop_picc(uint32_t number);
+static bool NexButton_Set_background_crop_picc(NexObject_var *obj, uint32_t number);
 
 /**
  * Get picc2 attribute of component
@@ -164,7 +164,7 @@ bool Set_background_crop_picc(uint32_t number);
  * @param number - buffer storing data return
  * @return the length of the data
  */
-uint32_t Get_press_background_crop_picc2(uint32_t *number);
+static uint32_t NexButton_Get_press_background_crop_picc2(NexObject_var *obj, uint32_t *number);
 
 /**
  * Set picc2 attribute of component
@@ -172,7 +172,7 @@ uint32_t Get_press_background_crop_picc2(uint32_t *number);
  * @param number - To set up the data
  * @return true if success, false for failure
  */
-bool Set_press_background_crop_picc2(uint32_t number);
+static bool NexButton_Set_press_background_crop_picc2(NexObject_var *obj, uint32_t number);
 
 /**
  * Get pic attribute of component
@@ -180,7 +180,7 @@ bool Set_press_background_crop_picc2(uint32_t number);
  * @param number - buffer storing data return
  * @return the length of the data
  */
-uint32_t Get_background_image_pic(uint32_t *number);
+static uint32_t NexButton_Get_background_image_pic(NexObject_var *obj, uint32_t *number);
 
 /**
  * Set pic attribute of component
@@ -188,7 +188,7 @@ uint32_t Get_background_image_pic(uint32_t *number);
  * @param number - To set up the data
  * @return true if success, false for failure
  */
-bool Set_background_image_pic(uint32_t number);
+static bool NexButton_Set_background_image_pic(NexObject_var *obj, uint32_t number);
 
 /**
  * Get pic2 attribute of component
@@ -196,7 +196,7 @@ bool Set_background_image_pic(uint32_t number);
  * @param number - buffer storing data return
  * @return the length of the data
  */
-uint32_t Get_press_background_image_pic2(uint32_t *number);
+static uint32_t NexButton_Get_press_background_image_pic2(NexObject_var *obj, uint32_t *number);
 
 /**
  * Set pic2 attribute of component
@@ -204,11 +204,14 @@ uint32_t Get_press_background_image_pic2(uint32_t *number);
  * @param number - To set up the data
  * @return true if success, false for failure
  */
-bool Set_press_background_image_pic2(uint32_t number);
+static bool NexButton_Set_press_background_image_pic2(NexObject_var *obj, uint32_t number);
 
 typedef struct {
-		void (*create) (NexObject_var *obj, uint8_t pid, uint8_t cid, const char *name);
+		void (*create) 		(NexObject_var *obj, uint8_t pid, uint8_t cid, const char *name);
+		uint16_t (*getText)	(NexObject_var *obj, char *buffer, uint16_t len);
+		bool (*setText)		(NexObject_var *obj, const char *buffer);
 }NexButton_func;
 
+extern NexButton_func NexButton;
 
 #endif /* NEXTION_NEXBUTTON_H_ */
