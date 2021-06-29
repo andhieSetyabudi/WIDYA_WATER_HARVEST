@@ -10,6 +10,7 @@
 
 #include "main.h"
 #include "NexObject.h"
+#include "stdio.h"
 #include "stdbool.h"
 #include "stddef.h"
 
@@ -18,6 +19,10 @@
 #define CONCATE_(X, Y) X##Y
 #define CONCATE(MACRO, NUMBER) CONCATE_(MACRO, NUMBER)
 #define VA_MACRO(MACRO, ...) CONCATE(MACRO, NUM_ARGS(__VA_ARGS__))(__VA_ARGS__)
+
+#ifndef MAX_BUFF_COUNT
+	#define MAX_BUFF_COUNT	64
+#endif
 
 #define NEX_RET_CMD_FINISHED            	(0x01)
 #define NEX_RET_EVENT_LAUNCHED          	(0x88)
@@ -36,10 +41,6 @@
 #define NEX_RET_INVALID_BAUD            	(0x11)
 #define NEX_RET_INVALID_VARIABLE        	(0x1A)
 #define NEX_RET_INVALID_OPERATION       	(0x1B)
-//
-//typedef struct{
-//	UART_HandleTypeDef* UART_;
-//}NexHardware_var;
 
 
 /**
@@ -69,14 +70,19 @@ static void nex_HWLoop(NexObject_var *nex_listen_list[]);
 
 static bool nex_recvRetNumber(uint32_t *number, uint32_t timeout);
 static uint16_t nex_recvRetString(char *buffer, uint16_t len, uint32_t timeout);
-static void sendCommand(const char* cmd);
-static bool recvRetCommandFinished(uint32_t timeout);
+static void nex_sendCommand(const char* cmd);
+static bool nex_recvRetCommandFinished(uint32_t timeout);
 
 typedef struct{
 	UART_HandleTypeDef* UART_;
+	void (*delay)	(uint32_t t);
 	bool (*init)	(void);
 	void (*loop)	(NexObject_var *nex_listen_list[]);
 
+	bool (*recvRetNumber)		(uint32_t *number, uint32_t timeout);
+	uint16_t (*recvRetString)	(char *buffer, uint16_t len, uint32_t timeout);
+	void (*sendCommand)			(const char* cmd);
+	bool (*recvRetCommandFinished) (uint32_t timeout);
 }NexHardware_func;
 
 extern NexHardware_func NexHardware;

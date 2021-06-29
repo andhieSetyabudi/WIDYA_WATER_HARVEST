@@ -9,6 +9,7 @@
 "Drivers/BASIC_IO/micro_delay.o"
 "Drivers/E32_915T30D/E32_915T30.o"
 "Drivers/HX710B/HX710B.o"
+"Drivers/Nextion/NexButton.o"
 "Drivers/Nextion/NexHardware.o"
 "Drivers/Nextion/NexObject.o"
 "Drivers/SERIAL/HALSerial.o"

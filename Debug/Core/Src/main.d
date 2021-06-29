@@ -49,6 +49,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/nextion.h \
  D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexObject.h \
  D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexHardware.h \
+ D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexButton.h \
  D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/SERIAL/USBSerial/SerialUSB.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
@@ -165,6 +166,8 @@ D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/nextion.h:
 D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexObject.h:
 
 D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexHardware.h:
+
+D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexButton.h:
 
 D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/SERIAL/USBSerial/SerialUSB.h:
 

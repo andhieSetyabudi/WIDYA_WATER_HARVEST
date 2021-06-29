@@ -1,1 +1,7 @@
-NexHardware.c:27:6:nex_recvRetNumber	24	static
+NexHardware.c:22:6:nex_halt	16	static
+NexHardware.c:40:6:nex_recvRetNumber	24	static
+NexHardware.c:69:10:nex_recvRetString	104	static
+NexHardware.c:133:6:nex_sendCommand	48	dynamic
+NexHardware.c:156:6:nex_recvRetCommandFinished	24	static
+NexHardware.c:169:6:nex_HWInit	16	static
+NexHardware.c:182:6:nex_HWLoop	32	static

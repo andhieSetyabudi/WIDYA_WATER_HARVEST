@@ -12,11 +12,13 @@
 
 #include "NexObject.h"
 #include "NexHardware.h"
+#include "NexButton.h"
+
 
 //#include "NexTouch.h"
 
 //
-//#include "NexButton.h"
+
 //#include "NexCrop.h"
 //#include "NexGauge.h"
 //#include "NexHotspot.h"
