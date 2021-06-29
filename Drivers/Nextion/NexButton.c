@@ -41,3 +41,27 @@ uint32_t NexButton_Get_background_color_bco(NexObject_var *obj, uint32_t *number
 	NexHardware.sendCommand(cmd);
 	return NexHardware.recvRetNumber(number, 100UL);
 }
+
+bool NexButton_Set_background_color_bco(NexObject_var *obj, uint32_t number)
+{
+	char buf[10] = {0};
+	size_t len_ = strlen(obj->__name) + 20;
+	char cmd[len_];
+// create bco
+	utoa(number, buf, 10);
+	sprintf(cmd, "%s.bco=%u", obj->__name, buf);
+	NexHardware.sendCommand(cmd);
+
+// create ref
+	sprintf(cmd, "ref %s", obj->__name);
+	NexHardware.sendCommand(cmd);
+	return NexHardware.recvRetCommandFinished(100UL);
+}
+
+uint32_t NexButton_Get_press_background_color_bco2(NexObject_var *obj, uint32_t *number)
+{
+	char cmd[strlen(obj->__name)+12] = "";
+	sprintf(cmd, "get %s.bco2", obj->__name);
+	NexHardware.sendCommand(cmd);
+	return NexHardware.recvRetNumber(number,100UL);
+}

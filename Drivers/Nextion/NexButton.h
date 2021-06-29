@@ -44,7 +44,7 @@ static uint32_t NexButton_Get_background_color_bco(NexObject_var *obj, uint32_t 
  * @param number - To set up the data
  * @return true if success, false for failure
  */
-bool Set_background_color_bco(uint32_t number);
+static bool NexButton_Set_background_color_bco(NexObject_var *obj, uint32_t number);
 
 /**
  * Get bco2 attribute of component
@@ -52,7 +52,7 @@ bool Set_background_color_bco(uint32_t number);
  * @param number - buffer storing data return
  * @return the length of the data
  */
-uint32_t Get_press_background_color_bco2(uint32_t *number);
+static uint32_t NexButton_Get_press_background_color_bco2(NexObject_var *obj, uint32_t *number);
 
 /**
  * Set bco2 attribute of component
@@ -205,6 +205,10 @@ uint32_t Get_press_background_image_pic2(uint32_t *number);
  * @return true if success, false for failure
  */
 bool Set_press_background_image_pic2(uint32_t number);
+
+typedef struct {
+		void (*create) (NexObject_var *obj, uint8_t pid, uint8_t cid, const char *name);
+}NexButton_func;
 
 
 #endif /* NEXTION_NEXBUTTON_H_ */

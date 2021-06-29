@@ -1,4 +1,0 @@
-NexButton.c:11:6:NexButton_create	32	static
-NexButton.c:17:10:NexButton_getText	48	dynamic
-NexButton.c:27:6:NexButton_setText	40	dynamic
-NexButton.c:36:10:NexButton_Get_background_color_bco	40	dynamic
