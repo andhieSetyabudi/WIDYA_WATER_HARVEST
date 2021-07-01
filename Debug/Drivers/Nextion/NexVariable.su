@@ -1,0 +1,2 @@
+NexVariable.c:10:10:NexVariable_getValue	40	dynamic
+NexVariable.c:20:6:NexVariable_setValue	48	dynamic

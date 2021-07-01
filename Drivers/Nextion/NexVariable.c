@@ -19,9 +19,11 @@ uint32_t NexVariable_getValue(NexObject_var *obj, uint32_t *number)
 
 bool NexVariable_setValue(NexObject_var *obj, uint32_t number)
 {
-	size_t len_ = strlen(obj->__name)+(size_t)8+strlen(buffer);
+	char buf[10] = {0};
+	utoa(number, buf, 10);
+	size_t len_ = strlen(obj->__name)+20;
 	char cmd[len_];
-	sprintf(cmd,"%s.val=\"%s\"", obj->__name, buffer);
+	sprintf(cmd,"%s.val=\"%s\"", obj->__name, buf);
 	NexHardware.sendCommand(cmd);
 	return NexHardware.recvRetCommandFinished(1000UL);
 }

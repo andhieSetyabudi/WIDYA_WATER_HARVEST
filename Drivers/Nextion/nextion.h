@@ -16,24 +16,25 @@
 
 // object-support
 #include "NexButton.h"
+#include "NexPage.h"
 #include "NexPicture.h"
 #include "NexProgressBar.h"
 #include "NexRtc.h"
 #include "NexSlider.h"
 #include "NexText.h"
-
 #include "NexVariable.h"
 
 
+#include "NexNumber.h"
 
 //#include "NexCrop.h"
 //#include "NexGauge.h"
 //#include "NexHotspot.h"
-//#include "NexPage.h"
+//
 
 //#include "NexWaveform.h"
 //#include "NexTimer.h"
-//#include "NexNumber.h"
+//
 //#include "NexDualStateButton.h"
 //
 //#include "NexCheckbox.h"
