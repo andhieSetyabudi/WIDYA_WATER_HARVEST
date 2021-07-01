@@ -37,7 +37,6 @@
 
 /* USER CODE END Includes */
 
-//__typeof__ (NexObject_func) alpha;
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 
@@ -60,6 +59,7 @@ RTC_HandleTypeDef hrtc;
 TIM_HandleTypeDef htim1;
 
 UART_HandleTypeDef huart1;
+UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 
@@ -72,6 +72,7 @@ static void MX_USART1_UART_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_RTC_Init(void);
 static void MX_I2C1_Init(void);
+static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
 char * getUUID(char * buff)
 {
@@ -144,6 +145,30 @@ char* ftoa(float f, char * buf, int precision)
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void b0PopCallback(void *ptr)
+{
+	char buffer[100] = {0};
+    uint16_t len;
+    uint16_t number;
+    NexObject_var *btn = (NexObject_var *)ptr;
+    memset(buffer, 0, sizeof(buffer));
+
+    /* Get the text value of button component [the value is string type]. */
+    NexButton.getText(btn, buffer, 100);
+    USBSerial.print(buffer);
+//    btn->getText(buffer, sizeof(buffer));?
+
+    number = atoi(buffer);
+    number += 1;
+
+    memset(buffer, 0, sizeof(buffer));
+    itoa(number, buffer, 10);
+
+    /* Set the text value of button component [the value is string type]. */
+    NexButton.setText(btn,buffer);
+    HAL_Delay(1000);
+//    btn->setText(buffer);
+}
 
 /* USER CODE END 0 */
 
@@ -180,6 +205,7 @@ int main(void)
   MX_RTC_Init();
   MX_USB_DEVICE_Init();
   MX_I2C1_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   /* USER CODE END 2 */
 
@@ -216,15 +242,35 @@ int main(void)
   SGP40.begin(&VOC_sensor, &hi2c1,DFRobot_SGP40_ICC_ADDR, 10000UL);
   char txt[20]="halloooo \n";
   char tmp[64];
+
+  NexObject_var button_nextion;
+  NexHardware.nex_serial = &Serial1;
+  NexHardware.delay = HAL_Delay;
+  NexButton.create(&button_nextion, 0, 1, "b0");
+  NexObject_var *nex_listen_list[] =
+  {
+      &button_nextion,
+      NULL
+  };
+  NexHardware.init();
+//  NexButton.setText(&button_nextion, (const char*)"1");
+  NexObject.attachPop(&button_nextion,b0PopCallback, &button_nextion);
+  uint8_t num=0;
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  if ( USBSerial.peek() >= USB_OTG_FS_MAX_PACKET_SIZE )
-	  	  USBSerial.flush();
+	  NexHardware.loop(nex_listen_list);
+	  char num_val[10];
+	  sprintf(num_val, "nilai %d", num);
+	  if(NexButton.setText(&button_nextion, (const char*)num_val) )
+		  USBSerial.print((const char*)"success\r\n");
+	  num++;
+//	  if ( USBSerial.peek() >= (USB_OTG_FS_MAX_PACKET_SIZE/2) )
+//	  	  USBSerial.flush();
 //	  USBSerial.puts((uint8_t*)txt,strlen(txt));
-	  int press_adc = 0;
+/*	  int press_adc = 0;
 	  if ( HX710B.read(&pressure_sensor1,&press_adc, 1000) == HX710B_OK )
 	  {
 //		  uint32_t press_offset = 7240000;
@@ -249,18 +295,28 @@ int main(void)
 		  sprintf(tmp, "VOC = %i \n\r", voc_index);
 		  USBSerial.puts((uint8_t*)tmp, strlen(tmp));
 	  }
-
-	  HAL_Delay(500);
+*/
+	  HAL_Delay(5000);
 	  digitalToggle(LED_pin_);
-	  if(Serial1.available() > 0)
-	  {
-		  size_t n_ = Serial1.available();
-		  char tBuf[n_];
-		  Serial1.gets(tBuf,n_);
-		  USBSerial.puts((uint8_t*)tBuf, strlen(tBuf));
-
-	  }
-
+//	  while(Serial1.available() > 0)
+//	  {
+//		  size_t n_ = Serial1.available();
+//		  uint8_t tBuf[n_];
+//		  Serial1.gets(tBuf,n_);
+//		  char buffer_t[n_ + 10];
+//		  sprintf( buffer_t, "n = ");
+//		  for ( int i=0; i< n_; i++)
+//		  {
+//			  char cat_[5];
+//			  sprintf(cat_, "%02x", tBuf[i]);
+//			  strcat(buffer_t, cat_);
+//		  }
+//		  strcat( buffer_t, (const char*) "\r\n");
+//		  USBSerial.puts(buffer_t, strlen(buffer_t));
+////		  USBSerial.flush();
+////		  USBSerial.puts((uint8_t*)tBuf, strlen(tBuf));
+//
+//	  }
   }
   /* USER CODE END 3 */
 }
@@ -460,6 +516,39 @@ static void MX_USART1_UART_Init(void)
   /* USER CODE BEGIN USART1_Init 2 */
 
   /* USER CODE END USART1_Init 2 */
+
+}
+
+/**
+  * @brief USART2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART2_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART2_Init 0 */
+
+  /* USER CODE END USART2_Init 0 */
+
+  /* USER CODE BEGIN USART2_Init 1 */
+
+  /* USER CODE END USART2_Init 1 */
+  huart2.Instance = USART2;
+  huart2.Init.BaudRate = 19200;
+  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  huart2.Init.StopBits = UART_STOPBITS_1;
+  huart2.Init.Parity = UART_PARITY_NONE;
+  huart2.Init.Mode = UART_MODE_TX_RX;
+  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART2_Init 2 */
+
+  /* USER CODE END USART2_Init 2 */
 
 }
 

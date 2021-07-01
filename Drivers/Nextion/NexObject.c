@@ -49,13 +49,17 @@ void nex_pop(NexObject_var * this)
     }
 }
 
+#include "SerialUSB.h"
+
 void nex_iterate(NexObject_var **list, uint8_t pid, uint8_t cid, int32_t event)
 {
 	NexObject_var *e = NULL;
     uint16_t i = 0;
 
-    if (NULL == list)
+    USBSerial.print("pid: %d \t cid: %d \t event: %d", pid, cid, event);
+    if (list==NULL)
     {
+    	USBSerial.print("list kosong");
         return;
     }
 
@@ -63,6 +67,7 @@ void nex_iterate(NexObject_var **list, uint8_t pid, uint8_t cid, int32_t event)
     {
         if (e->__pid == pid && e->__cid == cid)
         {
+        	USBSerial.print("name: %s\r\n",e->__name);
             if (NEX_EVENT_PUSH == event)
             {
             	nex_push(e);

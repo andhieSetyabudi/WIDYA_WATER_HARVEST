@@ -8,7 +8,7 @@
 #include "NexHardware.h"
 
 NexHardware_func NexHardware = {
-		.UART_	= NULL,
+		.nex_serial	= NULL,
 		.delay	= NULL,
 		.init 	= nex_HWInit,
 		.loop	= nex_HWLoop,
@@ -39,20 +39,20 @@ void nex_halt(uint32_t t)
  */
 bool nex_recvRetNumber(uint32_t *number, uint32_t timeout)
 {
-	if ( NexHardware.UART_ == NULL )
+	if  ( NexHardware.nex_serial == NULL )
 		return false;
-	if ( !number )
+	uint8_t temp[8] = {0};
+	if (!number)
 		return false;
-    uint8_t temp[8] = {0};
+	NexHardware.nex_serial->setTimeout(timeout);
+	if (sizeof(temp) != NexHardware.nex_serial->readBytes((char *)temp, sizeof(temp)))
+		return false;
 
-    if ( HAL_UART_Receive(NexHardware.UART_, temp, 8, timeout) == HAL_OK )
-    {
-    	if ( temp[0] == NEX_RET_NUMBER_HEAD && temp[5] == 0xFF && temp[6] == 0xFF && temp[7] == 0xFF )
-		{
-			*number = ((uint32_t)temp[4] << 24) | ((uint32_t)temp[3] << 16) | (temp[2] << 8) | (temp[1]);
-			return true;
-		}
-    }
+	if (temp[0] == NEX_RET_NUMBER_HEAD && temp[5] == 0xFF && temp[6] == 0xFF && temp[7] == 0xFF)
+	{
+		*number = ((uint32_t)temp[4] << 24) | ((uint32_t)temp[3] << 16) | (temp[2] << 8) | (temp[1]);
+		return true;
+	}
     return false;
 }
 
@@ -68,61 +68,58 @@ bool nex_recvRetNumber(uint32_t *number, uint32_t timeout)
  */
 uint16_t nex_recvRetString(char *buffer, uint16_t len, uint32_t timeout)
 {
-	// check for status serial UART
-	if ( NexHardware.UART_ == NULL )
-		return false;
-	// check for buffer len
+	if  ( NexHardware.nex_serial == NULL )
+		return 0;
 	if (!buffer || len == 0)
 		return 0;
-
 	uint16_t ret = 0;
-    bool str_start_flag = false;
-    uint8_t cnt_0xff = 0;
-    char temp[MAX_BUFF_COUNT];
-    memset(temp, '\0', MAX_BUFF_COUNT);
-    memset(buffer, '\0', len);
+	bool str_start_flag = false;
+	uint8_t cnt_0xff = 0;
+	char temp[MAX_BUFF_COUNT];
+	uint8_t c = 0;
+	long start;
 
-
-    uint32_t start_ = HAL_GetTick();
-    while (HAL_GetTick() - start_ <= timeout)
-    {
-    	HAL_UART_Receive(NexHardware.UART_, (uint8_t*)temp, MAX_BUFF_COUNT, timeout);
-    	if ( strlen(temp) > 0 )
-    	{
-    		uint8_t loc = 0;
-    		while( loc < MAX_BUFF_COUNT && temp[loc] != NULL )
-    		{
-    			uint8_t c = temp[loc];
-    			if (str_start_flag)
+	uint8_t id_tmp = 0;
+	start = HAL_GetTick();
+	while (HAL_GetTick() - start <= timeout)
+	{
+		while (NexHardware.nex_serial->available())
+		{
+			c = NexHardware.nex_serial->read();
+			if (str_start_flag)
+			{
+				if (0xFF == c)
 				{
-					if (0xFF == c)
+					cnt_0xff++;
+					if (cnt_0xff >= 3)
 					{
-						cnt_0xff++;
-						if (cnt_0xff >= 3)
-						{
-							break;
-						}
-					}
-					else
-					{
-						*buffer= (char)c;
-						buffer++;
+						break;
 					}
 				}
-				else if (NEX_RET_STRING_HEAD == c)
+				else
 				{
-					str_start_flag = true;
+					temp[id_tmp] = (char) c;
+					id_tmp++;
+//					temp+=1;
+//					temp += (char)c;
 				}
-    			loc++;
-    		}
-    	}
-    	if (cnt_0xff >= 3)
+			}
+			else if (NEX_RET_STRING_HEAD == c)
+			{
+				str_start_flag = true;
+			}
+		}
+
+		if (cnt_0xff >= 3)
 		{
 			break;
 		}
-    }
-    ret = (uint16_t) strlen(buffer);
-    return ret;
+	}
+
+	ret = strlen(temp);
+	ret = ret > len ? len : ret;
+	strncpy(buffer, temp, ret);
+	return ret;
 }
 
 /*
@@ -132,15 +129,17 @@ uint16_t nex_recvRetString(char *buffer, uint16_t len, uint32_t timeout)
  */
 void nex_sendCommand(const char* cmd)
 {
-	size_t len = strlen(cmd);
-	uint8_t buffer[len+1];
-    HAL_UART_Receive(NexHardware.UART_, buffer, len+1, 100);
-    sprintf(buffer,"%s",cmd);
-    HAL_UART_Transmit(NexHardware.UART_, buffer, strlen(buffer), 1000UL);
-    buffer[0] = 0xFF;
-    buffer[1] = 0xFF;
-    buffer[2] = 0xFF;
-    HAL_UART_Transmit(NexHardware.UART_, buffer, 3, 1000UL);
+//	if  ( NexHardware.nex_serial == NULL )
+//		return;
+	while (NexHardware.nex_serial->available())
+	{
+		NexHardware.nex_serial->read();
+	}
+	NexHardware.nex_serial->puts(cmd, strlen(cmd));
+	USBSerial.print("%s\r\n",cmd);
+	NexHardware.nex_serial->write(0xFF);
+	NexHardware.nex_serial->write(0xFF);
+	NexHardware.nex_serial->write(0xFF);
 }
 
 
@@ -155,15 +154,16 @@ void nex_sendCommand(const char* cmd)
  */
 bool nex_recvRetCommandFinished(uint32_t timeout)
 {
-    bool ret = false;
-    uint8_t temp[4] = {0};
+	bool ret = false;
+	uint8_t temp[4] = {0};
 
-    if( HAL_UART_Receive(NexHardware.UART_, temp, 4, timeout) != HAL_OK )
-    	ret = false;
-
-    if (temp[0] == NEX_RET_CMD_FINISHED && temp[1] == 0xFF && temp[2] == 0xFF && temp[3] == 0xFF)
-        ret = true;
-    return ret;
+	NexHardware.nex_serial->setTimeout(timeout);
+	if (4 != NexHardware.nex_serial->readBytes(temp, sizeof(temp)))
+		return false;
+	USBSerial.puts(temp, sizeof(temp));
+	if (temp[0] == NEX_RET_CMD_FINISHED	&& temp[1] == 0xFF && temp[2] == 0xFF && temp[3] == 0xFF)
+		return true;
+	return false;
 }
 
 bool nex_HWInit(void)
@@ -181,18 +181,51 @@ bool nex_HWInit(void)
 
 void nex_HWLoop(NexObject_var *nex_listen_list[])
 {
-    static uint8_t __buffer[10];
-    uint8_t c;
-    if ( HAL_UART_Receive(NexHardware.UART_, &c, 1, 100) == HAL_OK )
-    {
-    	nex_halt(10);
-		if (NEX_RET_EVENT_TOUCH_HEAD == c)
-		{
-			if ( HAL_UART_Receive(NexHardware.UART_, __buffer, 10, 100) == HAL_OK )
-			{
-				if (0xFF == __buffer[3] && 0xFF == __buffer[4] && 0xFF == __buffer[5])
-					NexObject.iterate(nex_listen_list, __buffer[0], __buffer[1], (int32_t)__buffer[2]);
-			};
-		};
-    };
+
+
+	static uint8_t __buffer[10];
+
+	    uint16_t i;
+	    uint8_t c;
+
+	    while (NexHardware.nex_serial->available() > 0)
+	    {
+	    	nex_halt(10);
+	        c = NexHardware.nex_serial->read();
+	        USBSerial.print("%02X",c);
+	        if (NEX_RET_EVENT_TOUCH_HEAD == c)
+	        {
+	            if (NexHardware.nex_serial->available() >= 6)
+	            {
+	                __buffer[0] = c;
+	                for (i = 1; i < 7; i++)
+	                {
+	                    __buffer[i] = NexHardware.nex_serial->read();
+	                    USBSerial.print("%02X",__buffer[i]);
+	                }
+	                __buffer[i] = 0x00;
+
+	                if (0xFF == __buffer[4] && 0xFF == __buffer[5] && 0xFF == __buffer[6])
+	                {
+	                	NexObject.iterate(nex_listen_list, __buffer[1], __buffer[2], (int32_t)__buffer[3]);
+	                }
+
+	            }
+	        }
+	    }
+
+//    static uint8_t __buffer[10];
+//    uint8_t c;
+//    if ( HAL_UART_Receive(NexHardware.UART_, &c, 1, 100) == HAL_OK )
+//    {
+//    	nex_halt(10);
+//		if (NEX_RET_EVENT_TOUCH_HEAD == c)
+//		{
+//			if ( HAL_UART_Receive(NexHardware.UART_, __buffer, 10, 100) == HAL_OK )
+//			{
+//				if (0xFF == __buffer[3] && 0xFF == __buffer[4] && 0xFF == __buffer[5])
+//
+//			};
+//		};
+//    };
 }

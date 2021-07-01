@@ -1,0 +1,6 @@
+NexRtc.h:21:24:NexRtc_write_rtc_time_byString	56	static
+NexRtc.h:82:24:NexRtc_write_rtc_time_byType	48	static
+NexRtc.h:110:24:NexRtc_write_rtc_time_byArray	56	static
+NexRtc.h:189:24:NexRtc_read_rtc_time	96	static
+NexRtc.h:284:24:NexRtc_read_rtc_time_byType	32	static
+NexRtc.h:316:24:NexRtc_read_rtc_time_byArray	32	static

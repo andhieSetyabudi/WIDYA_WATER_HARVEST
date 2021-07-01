@@ -8,4 +8,4 @@ NexObject.c:24:6:nex_attachPop	24	static
 NexObject.c:30:6:nex_detachPop	16	static
 NexObject.c:36:6:nex_push	16	static
 NexObject.c:44:6:nex_pop	16	static
-NexObject.c:52:6:nex_iterate	32	static
+NexObject.c:54:6:nex_iterate	40	static

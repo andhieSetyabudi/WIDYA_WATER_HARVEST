@@ -1,5 +1,5 @@
-Drivers/Nextion/NexButton.o: ../Drivers/Nextion/NexButton.c \
- ../Drivers/Nextion/NexButton.h ../Drivers/Nextion/NexHardware.h \
+Drivers/Nextion/NexSlider.o: ../Drivers/Nextion/NexSlider.c \
+ ../Drivers/Nextion/NexSlider.h ../Drivers/Nextion/NexHardware.h \
  D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/SERIAL/HALSerial.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
@@ -52,9 +52,9 @@ Drivers/Nextion/NexButton.o: ../Drivers/Nextion/NexButton.c \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
  ../USB_DEVICE/App/usbd_cdc_if.h \
  d:\andri\widya\ imersif\firmware-test\drivers\serial\stream.h \
- ../Drivers/Nextion/NexObject.h
+ ../Drivers/Nextion/NexObject.h ../Drivers/Nextion/NexButton.h
 
-../Drivers/Nextion/NexButton.h:
+../Drivers/Nextion/NexSlider.h:
 
 ../Drivers/Nextion/NexHardware.h:
 
@@ -165,3 +165,5 @@ D:/Andri/WIdya\ Imersif/Firmware-test/Middlewares/ST/STM32_USB_Device_Library/Cl
 d:\andri\widya\ imersif\firmware-test\drivers\serial\stream.h:
 
 ../Drivers/Nextion/NexObject.h:
+
+../Drivers/Nextion/NexButton.h:

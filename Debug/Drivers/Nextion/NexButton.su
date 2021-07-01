@@ -15,7 +15,7 @@ NexButton.c:163:10:NexButton_Get_place_ycen	32	dynamic
 NexButton.c:171:6:NexButton_Set_place_ycen	48	dynamic
 NexButton.c:187:10:NexButton_getFont	32	dynamic
 NexButton.c:195:6:NexButton_setFont	48	dynamic
-NexButton.c:211:10:NexButton_Get_background_cropi_picc	32	dynamic
+NexButton.c:211:10:NexButton_Get_background_crop_picc	32	dynamic
 NexButton.c:219:6:NexButton_Set_background_crop_picc	48	dynamic
 NexButton.c:235:10:NexButton_Get_press_background_crop_picc2	32	dynamic
 NexButton.c:243:6:NexButton_Set_press_background_crop_picc2	48	dynamic

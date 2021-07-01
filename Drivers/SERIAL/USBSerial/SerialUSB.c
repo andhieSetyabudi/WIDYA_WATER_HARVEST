@@ -7,6 +7,9 @@
 
 
 #include "SerialUSB.h"
+#include <string.h>
+#include <inttypes.h>
+#include <stdarg.h>
 
 #include "stdbool.h"
 #ifdef __CDC_QUEUE_H
@@ -130,6 +133,18 @@ static void SerialUSB_flush(void)
 }
 
 
+
+static size_t SerialUSB_print(const char fmt[], ...)
+{
+	char serialusb_buffer_print[256];
+	va_list args;
+	va_start(args, fmt);
+	vsnprintf(serialusb_buffer_print, sizeof(serialusb_buffer_print), fmt, args);
+	va_end(args);
+	size_t ret = SerialUSB_puts(serialusb_buffer_print, strlen(serialusb_buffer_print));
+	return ret;
+}
+
 SERIAL_USB USBSerial =
 {
     .begin = SerialUSB_begin,
@@ -143,7 +158,7 @@ SERIAL_USB USBSerial =
     .gets	= SerialUSB_readbytes,
     .readBytesUntil = SerialUSB_readBytesUntil,
 
-
+	.print  = SerialUSB_print,
     .peek 	= SerialUSB_peek,
     .flush 	= SerialUSB_flush,
 };

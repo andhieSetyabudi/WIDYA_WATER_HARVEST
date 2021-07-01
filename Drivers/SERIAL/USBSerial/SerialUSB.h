@@ -58,8 +58,10 @@ typedef struct SERIALUSB
   size_t(*gets)			(char *buffer, size_t length);
   size_t (*readBytesUntil)	(char terminator, char *buffer, size_t length);
 
+  size_t (*print)(const char fmt[], ...);
   int (*peek)			(void);
   void(*flush)			(void);
+
 }SERIAL_USB;
 
 extern SERIAL_USB USBSerial;

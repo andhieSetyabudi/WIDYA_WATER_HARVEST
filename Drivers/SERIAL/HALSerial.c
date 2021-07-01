@@ -31,10 +31,10 @@ extern UART_HandleTypeDef huart1;
 
 static void Serial1_begin(uint32_t baudrate)
 {
-  HALSerial__construct (&Serial1.serialParam);
+  HALSerial__construct (&Serial1.serialParam, &huart1);
   Serial1.serialParam._written = FALSE;
 //  HAL_UART_Init(this->huart);
-  while(HAL_UART_Receive_IT(&huart1, Serial1.serialParam._rx_buffer + Serial1.serialParam._rx_buffer_head, 1) == HAL_BUSY);
+  while(HAL_UART_Receive_IT(Serial1.serialParam.huart/*&huart1*/, Serial1.serialParam._rx_buffer + Serial1.serialParam._rx_buffer_head, 1) == HAL_BUSY);
 
   Serial1.serialParam.huart->Init.BaudRate = baudrate;
   HALSerial_begin(&Serial1.serialParam);
@@ -47,17 +47,24 @@ static void Serial1_setTimeout(uint32_t timeout)
   Serial1.serialParam._timeout = timeout;
 }
 
-static void Serial1_end(void)	 	{HALSerial_end(&Serial1.serialParam);}
-static int Serial1_available(void)	{return HALSerial_available(&Serial1.serialParam);}
-static int Serial1_peek(void)		{return HALSerial_peek(&Serial1.serialParam);}
-static int Serial1_availableForWrite(void){return HALSerial_availableForWrite(&Serial1.serialParam);}
-static void Serial1_flush(void)		{HALSerial_flush(&Serial1.serialParam);}
-static size_t Serial1_write(uint8_t c)	{return HALSerial_writeByte(&Serial1.serialParam, c);}
-static size_t Serial1_puts(const uint8_t *str, size_t size){return HALSerial_write(&Serial1.serialParam, str, size);}
-static int Serial1_read(void)		{return HALSerial_read(&Serial1.serialParam);}
+static void Serial1_end(void)	 			{HALSerial_end(&Serial1.serialParam);}
+static int Serial1_available(void)			{return HALSerial_available(&Serial1.serialParam);}
+static int Serial1_peek(void)				{return HALSerial_peek(&Serial1.serialParam);}
+static int Serial1_availableForWrite(void)	{return HALSerial_availableForWrite(&Serial1.serialParam);}
+static void Serial1_flush(void)				{HALSerial_flush(&Serial1.serialParam);}
+static size_t Serial1_write(uint8_t c)		{return HALSerial_writeByte(&Serial1.serialParam, c);}
+static size_t Serial1_puts(const uint8_t *str, size_t size) {return HALSerial_write(&Serial1.serialParam, str, size);}
+static int Serial1_read(void)				{return HALSerial_read(&Serial1.serialParam);}
 static size_t Serial1_readUntil(char terminator, char *buffer, size_t length) {return HALSerial_readBytesUntil(&Serial1.serialParam,terminator,buffer, length);}
-static int Serial1_readTimeout(void)	{return HALSerial_timedRead(&Serial1.serialParam);}
+static int Serial1_readTimeout(void)		{return HALSerial_timedRead(&Serial1.serialParam);}
 static size_t Serial1_gets(char* buffer, size_t len) {return HALSerial_readBytes(&Serial1.serialParam, buffer, len);}
+
+static size_t Serial1_readbytes(char* buffer, size_t len)
+{
+	return Serial1_readUntil(NULL,buffer, len);
+//	return HALSerial_readBytes(&Serial1.serialParam, buffer, len);
+}
+
 char serial_buffer_print[256];
 static size_t Serial1_print(const char fmt[], ...)
 {
@@ -86,6 +93,8 @@ Serial Serial1 =
     .readTimeout 		= Serial1_readTimeout,
     .gets				= Serial1_gets,
     .print				= Serial1_print,
+
+	.readBytes			= Serial1_readbytes,
 
     .serialParam = {
 	    .huart = &huart1,
@@ -127,14 +136,14 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 }
 
 
-void HALSerial__construct(HALSerial *this)
+void HALSerial__construct(HALSerial *this, UART_HandleTypeDef *huart_)
 {
   Stream___construct((Stream *)this);
   this->_rx_buffer_head = 0;
   this->_rx_buffer_tail = 0;
   this->_tx_buffer_head = 0;
   this->_tx_buffer_tail = 0;
-  this-> huart = &huart1;
+  this-> huart = huart_;//&huart1;
 }
 
 // Actual interrupt handlers //////////////////////////////////////////////////////////////

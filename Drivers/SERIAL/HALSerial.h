@@ -68,7 +68,7 @@ typedef struct
   unsigned char _tx_buffer[HALSERIAL_TX_BUFFER_SIZE];
 } HALSerial;
 
-void HALSerial__construct(HALSerial *this);
+void HALSerial__construct(HALSerial *this, UART_HandleTypeDef *huart);
 
 void HALSerial_begin(HALSerial *this);
 void HALSerial_end(HALSerial *this);
@@ -132,6 +132,7 @@ typedef struct Serial
   int (*readTimeout)		(void);
   size_t (*gets)		(char *buffer, size_t length);
 
+  size_t (*readBytes)		(char *buffer, size_t length);
   void (*setTimeout)		(uint32_t timeout);
 
 }Serial;

@@ -8,6 +8,10 @@
 #ifndef NEXTION_NEXHARDWARE_H_
 #define NEXTION_NEXHARDWARE_H_
 
+//========
+#include "HALSerial.h"
+#include "SerialUSB.h"
+//========
 #include "main.h"
 #include "NexObject.h"
 #include "stdio.h"
@@ -74,7 +78,7 @@ static void nex_sendCommand(const char* cmd);
 static bool nex_recvRetCommandFinished(uint32_t timeout);
 
 typedef struct{
-	UART_HandleTypeDef* UART_;
+	Serial *nex_serial;
 	void (*delay)	(uint32_t t);
 	bool (*init)	(void);
 	void (*loop)	(NexObject_var *nex_listen_list[]);

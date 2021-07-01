@@ -49,7 +49,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/nextion.h \
  D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexObject.h \
  D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexHardware.h \
- D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexButton.h \
+ D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/SERIAL/HALSerial.h \
+ D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/SERIAL/Stream.h \
+ D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/SERIAL/Print.h \
  D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/SERIAL/USBSerial/SerialUSB.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
@@ -61,9 +63,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
  ../USB_DEVICE/App/usbd_cdc_if.h \
  d:\andri\widya\ imersif\firmware-test\drivers\serial\stream.h \
- d:\andri\widya\ imersif\firmware-test\drivers\serial\Print.h \
- D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/SERIAL/HALSerial.h \
- D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/SERIAL/Stream.h
+ D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexButton.h \
+ D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexText.h \
+ D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexSlider.h \
+ D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexRtc.h
 
 ../Core/Inc/main.h:
 
@@ -167,7 +170,11 @@ D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexObject.h:
 
 D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexHardware.h:
 
-D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexButton.h:
+D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/SERIAL/HALSerial.h:
+
+D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/SERIAL/Stream.h:
+
+D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/SERIAL/Print.h:
 
 D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/SERIAL/USBSerial/SerialUSB.h:
 
@@ -191,8 +198,10 @@ D:/Andri/WIdya\ Imersif/Firmware-test/Middlewares/ST/STM32_USB_Device_Library/Cl
 
 d:\andri\widya\ imersif\firmware-test\drivers\serial\stream.h:
 
-d:\andri\widya\ imersif\firmware-test\drivers\serial\Print.h:
+D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexButton.h:
 
-D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/SERIAL/HALSerial.h:
+D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexText.h:
 
-D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/SERIAL/Stream.h:
+D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexSlider.h:
+
+D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexRtc.h:

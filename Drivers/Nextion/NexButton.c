@@ -29,9 +29,9 @@ bool NexButton_setText(NexObject_var *obj, const char *buffer)
 {
 	size_t len_ = strlen(obj->__name)+(size_t)8+strlen(buffer);
 	char cmd[len_];
-	sprintf(cmd,"%s.txt\"%s\"", obj->__name, buffer);
+	sprintf(cmd,"%s.txt=\"%s\"", obj->__name, buffer);
 	NexHardware.sendCommand(cmd);
-	return NexHardware.recvRetCommandFinished(100UL);
+	return NexHardware.recvRetCommandFinished(1000UL);
 }
 
 uint32_t NexButton_Get_background_color_bco(NexObject_var *obj, uint32_t *number)
@@ -208,7 +208,7 @@ bool NexButton_setFont(NexObject_var *obj, uint32_t number)
 	return NexHardware.recvRetCommandFinished(100UL);
 }
 
-uint32_t NexButton_Get_background_cropi_picc(NexObject_var *obj, uint32_t *number)
+uint32_t NexButton_Get_background_crop_picc(NexObject_var *obj, uint32_t *number)
 {
 	char cmd[strlen(obj->__name)+12];
 	sprintf(cmd,"get %s.picc", obj->__name);
@@ -310,5 +310,26 @@ NexButton_func NexButton={
 		.create 	= NexButton_create,
 		.getText	= NexButton_getText,
 		.setText	= NexButton_setText,
-
+		.Get_background_color_bco		= NexButton_Get_background_color_bco,
+		.Set_background_color_bco		= NexButton_Set_background_color_bco,
+		.Get_press_background_color_bco2= NexButton_Get_press_background_color_bco2,
+		.Set_press_background_color_bco2= NexButton_Set_press_background_color_bco2,
+		.Get_font_color_pco				= NexButton_Get_font_color_pco,
+		.Set_font_color_pco				= NexButton_Set_font_color_pco,
+		.Get_press_font_color_pco2		= NexButton_Get_press_font_color_pco2,
+		.Set_press_font_color_pco2		= NexButton_Set_press_font_color_pco2,
+		.Get_place_xcen					= NexButton_Get_place_xcen,
+		.Set_place_xcen					= NexButton_Set_place_xcen,
+		.Get_place_ycen					= NexButton_Get_place_ycen,
+		.Set_place_ycen					= NexButton_Set_place_ycen,
+		.getFont						= NexButton_getFont,
+		.setFont						= NexButton_setFont,
+		.Get_background_crop_picc		= NexButton_Get_background_crop_picc,
+		.Set_background_crop_picc		= NexButton_Set_background_crop_picc,
+		.Get_press_background_crop_picc2= NexButton_Get_press_background_crop_picc2,
+		.Set_press_background_crop_picc2= NexButton_Set_press_background_crop_picc2,
+		.Get_background_image_pic		= NexButton_Get_background_image_pic,
+		.Set_background_image_pic		= NexButton_Set_background_image_pic,
+		.Get_press_background_image_pic2= NexButton_Get_press_background_image_pic2,
+		.Set_press_background_image_pic2= NexButton_Set_press_background_image_pic2,
 };

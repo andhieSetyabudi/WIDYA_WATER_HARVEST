@@ -85,9 +85,9 @@ typedef struct __attribute__ ((__packed__)){
 	HX710B_status	(*isReady)	(HX710B_var *var, uint32_t timeout_);
 }HX710B_funct;
 
-#define init_3(s,t,a,b,c)		init(a,b,c,MODE_DIFF2)
-#define init_4(s,t,a,b,c,d)		init(a,b,c,d)
-#define init(...)				VA_MACRO(init_, void, void,__VA_ARGS__)
+//#define init_3(s,t,a,b,c)		init(a,b,c,MODE_DIFF2)
+//#define init_4(s,t,a,b,c,d)		init(a,b,c,d)
+//#define init(...)				VA_MACRO(init_, void, void,__VA_ARGS__)
 
 extern HX710B_funct HX710B;
 
