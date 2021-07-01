@@ -1,0 +1,4 @@
+NexPicture.c:10:6:NexPicture_Get_background_image_pic	32	dynamic
+NexPicture.c:18:6:NexPicture_Set_background_image_pic	48	dynamic
+NexPicture.c:30:6:NexPicture_getPic	32	dynamic
+NexPicture.c:38:6:NexPicture_setPic	48	dynamic

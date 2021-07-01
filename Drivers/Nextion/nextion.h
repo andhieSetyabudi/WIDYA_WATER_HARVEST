@@ -10,26 +10,32 @@
 
 // necessary
 
+// necessary
 #include "NexObject.h"
 #include "NexHardware.h"
+
+// object-support
 #include "NexButton.h"
-#include "NexText.h"
-#include "NexSlider.h"
-#include "NexRtc.h"
+#include "NexPicture.h"
 #include "NexProgressBar.h"
+#include "NexRtc.h"
+#include "NexSlider.h"
+#include "NexText.h"
+
+#include "NexVariable.h"
+
 
 
 //#include "NexCrop.h"
 //#include "NexGauge.h"
 //#include "NexHotspot.h"
 //#include "NexPage.h"
-//#include "NexPicture.h"
 
 //#include "NexWaveform.h"
 //#include "NexTimer.h"
 //#include "NexNumber.h"
 //#include "NexDualStateButton.h"
-//#include "NexVariable.h"
+//
 //#include "NexCheckbox.h"
 //#include "NexRadio.h"
 //#include "NexScrolltext.h"
