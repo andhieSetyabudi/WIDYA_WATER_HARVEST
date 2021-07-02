@@ -64,14 +64,15 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../USB_DEVICE/App/usbd_cdc_if.h \
  d:\andri\widya\ imersif\firmware-test\drivers\serial\stream.h \
  D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexButton.h \
+ D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexNumber.h \
+ D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexVariable.h \
+ D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexSlider.h \
  D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexPage.h \
  D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexPicture.h \
  D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexProgressBar.h \
- D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexSlider.h \
  D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexRtc.h \
  D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexText.h \
- D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexVariable.h \
- D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexNumber.h
+ D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexScrolltext.h
 
 ../Core/Inc/main.h:
 
@@ -205,18 +206,20 @@ d:\andri\widya\ imersif\firmware-test\drivers\serial\stream.h:
 
 D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexButton.h:
 
+D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexNumber.h:
+
+D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexVariable.h:
+
+D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexSlider.h:
+
 D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexPage.h:
 
 D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexPicture.h:
 
 D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexProgressBar.h:
 
-D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexSlider.h:
-
 D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexRtc.h:
 
 D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexText.h:
 
-D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexVariable.h:
-
-D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexNumber.h:
+D:/Andri/WIdya\ Imersif/Firmware-test/Drivers/Nextion/NexScrolltext.h:

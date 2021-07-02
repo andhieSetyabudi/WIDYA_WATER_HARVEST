@@ -16,6 +16,7 @@
 
 // object-support
 #include "NexButton.h"
+#include "NexNumber.h"
 #include "NexPage.h"
 #include "NexPicture.h"
 #include "NexProgressBar.h"
@@ -25,7 +26,7 @@
 #include "NexVariable.h"
 
 
-#include "NexNumber.h"
+
 
 //#include "NexCrop.h"
 //#include "NexGauge.h"
@@ -39,7 +40,7 @@
 //
 //#include "NexCheckbox.h"
 //#include "NexRadio.h"
-//#include "NexScrolltext.h"
+#include "NexScrolltext.h"
 //#include "NexGpio.h"
 
 
